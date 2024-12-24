@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 ---
+=======
+type: "rule"
+>>>>>>> 4b5c43c (move file)
 name: "Process Time Monitoring Rule"
 description: "Triggers monitoring actions for processes that exceed normal execution time."
 enabled: true
 trigger:
+<<<<<<< HEAD
   type: "core.st2.Sensor"
   parameters:
     ref: "process_monitoring_sensor"
@@ -12,3 +17,13 @@ action:
   parameters:
     notification_channel: "discord" # Channel to send notifications
     alert_message: "Process {{ trigger.parameters.process_name }} has exceeded the normal execution time of {{ trigger.parameters.threshold }} seconds."
+=======
+  type: "sensor.process_monitoring_sensor"
+  parameters:
+    threshold: "300"  # Time in seconds to consider a process long-running
+action:
+  ref: "actions/process_time_monitoring.yaml"
+  parameters:
+    notification_channel: "discord"  # Channel to send notifications
+    alert_message: "Process {{ process_name }} has exceeded the normal execution time of {{ threshold }} seconds."
+>>>>>>> 4b5c43c (move file)

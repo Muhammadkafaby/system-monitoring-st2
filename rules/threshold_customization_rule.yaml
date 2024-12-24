@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 name: threshold_customization_rule
 description: Rule to trigger threshold customization actions based on administrator commands.
@@ -15,3 +16,23 @@ criteria:
   trigger.parameters.resource_usage_low:
     type: "lt"
     pattern: 50
+=======
+rules:
+  - name: threshold_customization_rule
+    description: Rule to trigger threshold customization actions based on administrator commands.
+    trigger:
+      type: webhook
+      parameters:
+        url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+    action:
+      ref: threshold_customization
+    criteria:
+      - condition: "resource_usage"
+        operator: "greater_than"
+        value: 85
+        action: "customize_threshold"
+      - condition: "resource_usage"
+        operator: "less_than"
+        value: 50
+        action: "customize_threshold"
+>>>>>>> 4b5c43c (move file)

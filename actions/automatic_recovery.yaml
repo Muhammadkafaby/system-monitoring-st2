@@ -1,13 +1,23 @@
+<<<<<<< HEAD
 ---
 name: automatic_recovery
 description: This action automatically restarts failed services or containers and notifies administrators.
 enabled: true
 entry_point: actions/automatic_recovery.py
 runner_type: python-script
+=======
+name: Automatic Recovery
+description: Automatically restarts failed services or containers and notifies the administrator via Discord.
+enabled: true
+runner_type: python-script
+entry_point: automatic_recovery.py
+
+>>>>>>> 4b5c43c (move file)
 parameters:
   service_name:
     type: string
     required: true
+<<<<<<< HEAD
     description: The name of the service or container to restart.
   retry_count:
     type: integer
@@ -22,3 +32,56 @@ parameters:
 output_schema:
   type: object
   properties: {}
+=======
+    description: The name of the service or container to monitor and restart if failed.
+  notification_channel:
+    type: string
+    required: true
+    description: The Discord channel to send notifications to.
+
+publish:
+  - service_name
+  - notification_channel
+
+action:
+  - name: check_service_status
+    description: Check if the specified service or container is running.
+    type: python-script
+    script: |
+      import subprocess
+
+      def is_service_running(service_name):
+          try:
+              output = subprocess.check_output(['systemctl', 'is-active', service_name])
+              return output.strip() == b'active'
+          except subprocess.CalledProcessError:
+              return False
+
+      return is_service_running(parameters['service_name'])
+
+  - name: restart_service
+    description: Restart the specified service or container if it is not running.
+    type: python-script
+    script: |
+      import subprocess
+
+      def restart_service(service_name):
+          subprocess.call(['systemctl', 'restart', service_name])
+
+      if not is_service_running(parameters['service_name']):
+          restart_service(parameters['service_name'])
+
+  - name: send_notification
+    description: Send a notification to Discord about the service status.
+    type: python-script
+    script: |
+      import requests
+
+      def send_discord_notification(channel, message):
+          webhook_url = f"https://discord.com/api/webhooks/{channel}"
+          data = {"content": message}
+          requests.post(webhook_url, json=data)
+
+      if not is_service_running(parameters['service_name']):
+          send_discord_notification(parameters['notification_channel'], f"{parameters['service_name']} has been restarted.")
+>>>>>>> 4b5c43c (move file)

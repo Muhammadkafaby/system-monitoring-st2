@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 name: send_discord_notification_rule
 description: Rule to trigger notifications to Discord based on various system events.
@@ -16,3 +17,23 @@ on-success:
   - log: "Notification sent to Discord for critical alert."
 on-failure:
   - log: "Failed to send notification to Discord."
+=======
+rules/send_discord_notification_rule.yaml:
+  name: send_discord_notification_rule
+  description: Rule to trigger notifications to Discord based on various system events.
+  enabled: true
+  trigger:
+    type: "sensor"
+    ref: "sensor.resource_monitoring_sensor"
+    parameters:
+      event_type: "critical"
+  action:
+    ref: "action.send_discord_notification"
+    parameters:
+      message: "Critical alert: Resource usage exceeded threshold."
+      channel: "alerts"
+  on-success:
+    - log: "Notification sent to Discord for critical alert."
+  on-failure:
+    - log: "Failed to send notification to Discord."
+>>>>>>> 4b5c43c (move file)

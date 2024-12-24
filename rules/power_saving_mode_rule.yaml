@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+=======
+rules/power_saving_mode_rule.yaml
+
+>>>>>>> 4b5c43c (move file)
 ---
 name: power_saving_mode_rule
 description: Rule to trigger power-saving mode actions based on system status.
 enabled: true
 trigger:
+<<<<<<< HEAD
   type: core.st2.Sensor
   parameters:
     ref: resource_monitoring_sensor
@@ -14,3 +20,19 @@ action:
   ref: system_monitoring.activate_power_saving_mode
   parameters:
     notification_channel: discord
+=======
+  type: sensor
+  ref: resource_monitoring_sensor
+  criteria:
+    - condition: "system_status == 'on_battery'"
+      action: "activate_power_saving_mode"
+    - condition: "system_status == 'plugged_in'"
+      action: "deactivate_power_saving_mode"
+  interval: 60
+  max_retries: 3
+  retry_interval: 10
+action:
+  ref: actions/power_saving_mode.yaml
+  parameters:
+    mode: "{{ trigger.action }}"
+>>>>>>> 4b5c43c (move file)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 name: "advanced_cache_cleaning"
 description: "This action cleans specific caches based on administrator commands and logs the results."
@@ -20,3 +21,35 @@ parameters:
 output_schema:
   type: "object"
   properties: {}
+=======
+name: Advanced Cache Cleaning
+description: This action cleans specific caches based on administrator commands and logs the results.
+enabled: true
+runner_type: python-script
+entry_point: advanced_cache_cleaning.py
+parameters:
+  cache_type:
+    type: string
+    required: true
+    description: The type of cache to clean (e.g., kernel, inode/dentry, buffer).
+  confirmation:
+    type: boolean
+    required: false
+    default: false
+    description: Whether to require confirmation before executing the cleaning action.
+  log_level:
+    type: string
+    required: false
+    default: "info"
+    description: The level of logging to use (e.g., debug, info, warning, error).
+notify_discord:
+  type: boolean
+  required: false
+  default: true
+  description: Whether to send a notification to Discord after cleaning.
+  notification_format:
+    type: string
+    required: false
+    default: "Cache cleaning completed for {cache_type}."
+    description: The format of the notification message sent to Discord.
+>>>>>>> 4b5c43c (move file)
