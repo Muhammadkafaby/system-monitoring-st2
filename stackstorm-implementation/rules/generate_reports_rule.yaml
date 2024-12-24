@@ -1,0 +1,10 @@
+type: "rule"
+name: "generate_reports_rule"
+description: "Triggers report generation actions on a scheduled basis."
+enabled: true
+trigger:
+  type: "schedule"
+  parameters:
+    cron: "0 0 * * *"  # Daily at midnight
+action:
+  ref: "actions.generate_reports"

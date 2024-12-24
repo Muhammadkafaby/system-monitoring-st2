@@ -1,0 +1,11 @@
+type: "rule"
+name: "Manage Zombie Processes"
+description: "Triggers the management of zombie processes based on detection results."
+enabled: true
+trigger:
+  type: "sensor"
+  ref: "process_monitoring_sensor"
+  parameters:
+    condition: "zombie_process_detected"
+action:
+  ref: "manage_zombie_processes"

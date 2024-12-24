@@ -1,0 +1,18 @@
+name: Docker Restart
+description: Automatically restart Docker containers that fail and notify the administrator.
+enabled: true
+runner_type: python-script
+entry_point: docker_restart.py
+parameters:
+  container_name:
+    type: string
+    required: true
+    description: Name of the Docker container to restart.
+  reason:
+    type: string
+    required: false
+    description: Reason for the restart notification.
+notify_discord:
+  type: boolean
+  default: true
+  description: Send notification to Discord after restart.

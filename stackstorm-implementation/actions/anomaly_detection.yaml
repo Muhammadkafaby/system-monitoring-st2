@@ -1,0 +1,26 @@
+type: python-script
+name: anomaly_detection
+description: This action detects abnormal activities in the system and notifies the administrator.
+enabled: true
+entry_point: actions/anomaly_detection.py
+parameters:
+  threshold:
+    type: integer
+    required: true
+    default: 100
+    description: Threshold for detecting anomalies.
+  notification_channel:
+    type: string
+    required: true
+    default: "discord"
+    description: Channel to send notifications to.
+  alert_level:
+    type: string
+    required: true
+    default: "critical"
+    description: Level of alert for anomalies detected.
+  log_file:
+    type: string
+    required: false
+    default: "/var/log/anomaly_detection.log"
+    description: Path to the log file for recording anomalies.

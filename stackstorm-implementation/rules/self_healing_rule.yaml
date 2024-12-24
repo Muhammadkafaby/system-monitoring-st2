@@ -1,0 +1,15 @@
+format: yaml
+name: self_healing_rule
+description: Rule to trigger self-healing actions for simple issues.
+enabled: true
+trigger:
+  type: sensor
+  ref: process_monitoring_sensor
+  criteria:
+    - condition: "simple_issue_detected"
+      threshold: 1
+action:
+  ref: self_healing
+  parameters:
+    notify_admin: true
+    log_results: true

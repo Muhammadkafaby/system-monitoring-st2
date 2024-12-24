@@ -1,0 +1,28 @@
+name: send_discord_notification
+description: Action to send notifications to Discord for various events, including critical alerts and routine reports.
+enabled: true
+runner_type: python-script
+script: send_discord_notification.py
+parameters:
+  message:
+    type: string
+    required: true
+    description: The message to send to Discord.
+  webhook_url:
+    type: string
+    required: true
+    description: The Discord webhook URL to send the notification to.
+  level:
+    type: string
+    required: false
+    description: The level of the notification (e.g., critical, warning, info).
+    default: info
+  timestamp:
+    type: string
+    required: false
+    description: The timestamp of the event being reported.
+    default: "{{ now() | to_datetime }}"
+  additional_info:
+    type: object
+    required: false
+    description: Additional information to include in the notification.

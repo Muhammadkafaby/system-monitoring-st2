@@ -1,0 +1,15 @@
+name: Power Saving Mode
+description: This action activates or deactivates power-saving mode based on system status and administrator commands.
+enabled: true
+runner_type: python-script
+entry_point: power_saving_mode.py
+parameters:
+  mode:
+    type: string
+    required: true
+    description: "Specify 'activate' to enable power-saving mode or 'deactivate' to disable it."
+  confirmation:
+    type: boolean
+    required: false
+    default: false
+    description: "Set to true to require confirmation before changing the mode."

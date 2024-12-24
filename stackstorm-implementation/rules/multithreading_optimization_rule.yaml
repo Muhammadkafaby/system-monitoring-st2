@@ -1,0 +1,12 @@
+type: rule
+name: multithreading_optimization_rule
+description: This rule triggers the multithreading optimization action based on analysis results.
+enabled: true
+trigger:
+  type: interval
+  seconds: 3600
+action:
+  ref: multithreading_optimization
+  parameters:
+    threshold: 80
+    notification_channel: discord

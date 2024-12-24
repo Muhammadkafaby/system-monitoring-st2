@@ -1,0 +1,30 @@
+name: dynamic_priority_management
+description: Dynamically manage process priorities based on resource usage and administrator commands.
+enabled: true
+runner_type: python-script
+entry_point: dynamic_priority_management.py
+parameters:
+  process_name:
+    type: string
+    required: true
+    description: Name of the process to manage priority.
+  action:
+    type: string
+    required: true
+    description: Action to perform (increase or decrease).
+  priority_level:
+    type: integer
+    required: false
+    description: Optional priority level to set if action is 'set'.
+  notify_discord:
+    type: boolean
+    required: false
+    default: true
+    description: Send notification to Discord after action is performed.
+
+publish:
+  - process_priority_updated
+  - discord_notification_sent
+
+# Example usage:
+# st2 run dynamic_priority_management process_name="my_process" action="increase" priority_level=10 notify_discord=true

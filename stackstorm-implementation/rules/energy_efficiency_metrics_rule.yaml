@@ -1,0 +1,16 @@
+rules/energy_efficiency_metrics_rule.yaml
+
+---
+name: energy_efficiency_metrics_rule
+description: Rule to trigger energy efficiency metrics monitoring actions.
+enabled: true
+trigger:
+  type: interval
+  seconds: 3600
+action:
+  ref: actions.energy_efficiency_metrics
+  parameters:
+    threshold: 80
+    notify: true
+    discord_channel: "energy-efficiency-alerts"
+    report_format: "summary"

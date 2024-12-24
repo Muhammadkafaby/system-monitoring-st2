@@ -1,0 +1,28 @@
+actions/process_time_monitoring.yaml
+
+name: process_time_monitoring
+description: Action to monitor processes that exceed normal execution time and notify the administrator.
+enabled: true
+runner_type: python-script
+entry_point: process_time_monitoring.py
+parameters:
+  process_name:
+    type: string
+    required: true
+    description: Name of the process to monitor.
+  time_threshold:
+    type: integer
+    required: true
+    description: Time threshold in seconds for normal execution.
+  notification_channel:
+    type: string
+    required: false
+    description: Discord channel for notifications.
+  alert_level:
+    type: string
+    required: false
+    description: Level of alert (critical, warning, info).
+  log_file:
+    type: string
+    required: false
+    description: Path to the log file for recording actions.

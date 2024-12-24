@@ -1,0 +1,31 @@
+name: monitor_resources
+description: Action to monitor CPU, RAM, disk usage, and network activity with alert thresholds and logging.
+enabled: true
+runner_type: python-script
+entry_point: monitor_resources.py
+parameters:
+  cpu_threshold:
+    type: integer
+    required: true
+    default: 90
+    description: CPU usage threshold for critical alerts.
+  ram_threshold:
+    type: integer
+    required: true
+    default: 90
+    description: RAM usage threshold for critical alerts.
+  disk_threshold:
+    type: integer
+    required: true
+    default: 90
+    description: Disk usage threshold for critical alerts.
+  network_threshold:
+    type: integer
+    required: true
+    default: 80
+    description: Network usage threshold for alerts.
+  log_level:
+    type: string
+    required: false
+    default: info
+    description: Logging level for the action (e.g., debug, info, warning, error).

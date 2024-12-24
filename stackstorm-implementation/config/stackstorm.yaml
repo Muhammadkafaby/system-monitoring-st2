@@ -1,0 +1,36 @@
+api_version: 1.0
+pack: stackstorm-implementation
+description: Configuration settings for StackStorm implementation
+api_key: YOUR_API_KEY_HERE
+discord_webhook_url: YOUR_DISCORD_WEBHOOK_URL_HERE
+log_level: INFO
+notification_channel: YOUR_DISCORD_CHANNEL_HERE
+reporting_interval: daily
+resource_monitoring:
+  cpu_threshold: 90
+  ram_threshold: 80
+  disk_threshold: 90
+  network_threshold: 1000
+  check_interval: 60
+zombie_process:
+  detection_interval: 300
+  validation_timeout: 120
+  discord_notification: true
+temp_file_management:
+  retention_period: 7
+  notify_before_deletion: true
+dynamic_priority:
+  enabled: true
+  adjustment_interval: 60
+malware_detection:
+  scan_interval: 3600
+  alert_on_detection: true
+docker_management:
+  auto_restart: true
+  restart_delay: 30
+energy_efficiency:
+  monitor_interval: 1800
+  efficiency_threshold: 75
+self_healing:
+  enabled: true
+  action_timeout: 60

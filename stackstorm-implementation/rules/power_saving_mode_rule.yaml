@@ -1,0 +1,21 @@
+rules/power_saving_mode_rule.yaml
+
+---
+name: power_saving_mode_rule
+description: Rule to trigger power-saving mode actions based on system status.
+enabled: true
+trigger:
+  type: sensor
+  ref: resource_monitoring_sensor
+  criteria:
+    - condition: "system_status == 'on_battery'"
+      action: "activate_power_saving_mode"
+    - condition: "system_status == 'plugged_in'"
+      action: "deactivate_power_saving_mode"
+  interval: 60
+  max_retries: 3
+  retry_interval: 10
+action:
+  ref: actions/power_saving_mode.yaml
+  parameters:
+    mode: "{{ trigger.action }}"

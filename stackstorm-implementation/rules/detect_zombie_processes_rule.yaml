@@ -1,0 +1,17 @@
+name: Detect Zombie Processes
+description: This rule triggers the action to detect zombie processes based on specific conditions.
+enabled: true
+trigger:
+  type: sensor.process_monitoring
+  parameters:
+    condition: "status == 'Z'"
+    interval: 60
+action:
+  ref: actions.detect_zombie_processes
+  parameters:
+    log_level: "info"
+    notify_discord: true
+    validation_required: true
+    notification_format: 
+      message: "Zombie process detected: {process_name} at {timestamp}. Reason: {reason}."
+      channel: "alerts"

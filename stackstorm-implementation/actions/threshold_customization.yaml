@@ -1,0 +1,25 @@
+action: threshold_customization
+description: Customize resource usage thresholds via Discord commands.
+enabled: true
+entry_point: actions/threshold_customization.py
+parameters:
+  cpu_threshold:
+    type: integer
+    required: false
+    description: Set the CPU usage threshold.
+  ram_threshold:
+    type: integer
+    required: false
+    description: Set the RAM usage threshold.
+  disk_threshold:
+    type: integer
+    required: false
+    description: Set the disk usage threshold.
+  network_threshold:
+    type: integer
+    required: false
+    description: Set the network usage threshold.
+notify_discord:
+  type: boolean
+  default: true
+  description: Send notification to Discord after threshold customization.

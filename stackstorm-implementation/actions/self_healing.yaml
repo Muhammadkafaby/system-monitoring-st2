@@ -1,0 +1,20 @@
+name: Self Healing Action
+description: Automatically fix simple issues and report the results to the administrator.
+enabled: true
+runner_type: python-script
+entry_point: actions/self_healing.py
+parameters:
+  issue_type:
+    type: string
+    required: true
+    description: Type of issue to be fixed (e.g., "service_down", "high_cpu_usage").
+  fix_attempts:
+    type: integer
+    required: false
+    default: 3
+    description: Number of attempts to fix the issue before reporting failure.
+  notify_admin:
+    type: boolean
+    required: false
+    default: true
+    description: Whether to notify the administrator after attempting to fix the issue.

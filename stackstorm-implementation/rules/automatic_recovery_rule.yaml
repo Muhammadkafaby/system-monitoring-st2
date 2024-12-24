@@ -1,0 +1,12 @@
+type: "rule"
+name: "Automatic Recovery Rule"
+description: "Triggers automatic recovery actions for failed services or containers."
+enabled: true
+trigger:
+  type: "sensor"
+  sensor: "resource_monitoring_sensor"
+  criteria:
+    - condition: "service_failed"
+      threshold: 1
+action:
+  ref: "automatic_recovery"
