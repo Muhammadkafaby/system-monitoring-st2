@@ -1,11 +1,13 @@
-type: "rule"
+---
 name: "Manage Zombie Processes"
 description: "Triggers the management of zombie processes based on detection results."
 enabled: true
 trigger:
-  type: "sensor"
-  ref: "process_monitoring_sensor"
+  type: core.st2.Sensor
   parameters:
+    ref: "process_monitoring_sensor"
     condition: "zombie_process_detected"
 action:
-  ref: "manage_zombie_processes"
+  ref: "system_monitoring.manage_zombie_processes"
+  parameters:
+    notify_discord: true

@@ -1,10 +1,14 @@
-type: "rule"
-name: "generate_reports_rule"
-description: "Triggers report generation actions on a scheduled basis."
+---
+name: generate_reports_rule
+description: Triggers report generation actions on a scheduled basis.
 enabled: true
 trigger:
-  type: "schedule"
+  type: core.st2.CronTimer
   parameters:
-    cron: "0 0 * * *"  # Daily at midnight
+    minute: 0
+    hour: 0
+    day_of_week: "*"
+    day: "*"
+    month: "*"
 action:
-  ref: "actions.generate_reports"
+  ref: actions.generate_reports

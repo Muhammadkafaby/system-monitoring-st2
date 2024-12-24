@@ -1,20 +1,15 @@
-rules/anomaly_detection_rule.yaml
-
 ---
 name: anomaly_detection_rule
 description: Rule to trigger anomaly detection actions based on system behavior.
 enabled: true
 trigger:
-  type: sensor
-  ref: sensor.resource_monitoring_sensor
+  type: core.st2.Sensor
   parameters:
+    ref: sensor.resource_monitoring_sensor
     condition: anomaly_detected
 action:
-  ref: action.anomaly_detection
+  ref: system_monitoring.anomaly_detection
   parameters:
     notification_channel: discord
     severity: critical
     message: "Anomaly detected in system behavior. Please investigate."
-  notify:
-    type: discord
-    message: "Anomaly detection action triggered. Check logs for details."

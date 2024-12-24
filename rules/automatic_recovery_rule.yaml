@@ -1,12 +1,18 @@
-type: "rule"
-name: "Automatic Recovery Rule"
+---
+name: "automatic_recovery_rule"
 description: "Triggers automatic recovery actions for failed services or containers."
 enabled: true
 trigger:
-  type: "sensor"
-  sensor: "resource_monitoring_sensor"
-  criteria:
-    - condition: "service_failed"
-      threshold: 1
+  type: "core.st2.Sensor"
+  parameters:
+    ref: "resource_monitoring_sensor"
+criteria:
+  trigger.parameters.service_failed:
+    type: "equals"
+    pattern: true
 action:
-  ref: "automatic_recovery"
+  ref: "system_monitoring.automatic_recovery"
+  parameters:
+    service_name: "{{trigger.parameters.service_name}}"
+    retry_count: 3
+    notification_channel: "discord"

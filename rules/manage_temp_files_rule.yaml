@@ -1,13 +1,12 @@
-rules/manage_temp_files_rule.yaml:
 ---
 name: manage_temp_files_rule
 description: Rule to trigger management of temporary files based on system conditions.
 enabled: true
 trigger:
-  type: sensor
-  ref: resource_monitoring_sensor
+  type: core.st2.Sensor
   parameters:
-    condition: 
+    ref: resource_monitoring_sensor
+    condition:
       - type: disk_usage
         threshold: 80
       - type: temp_file_age
@@ -16,5 +15,3 @@ action:
   ref: actions.manage_temp_files
   parameters:
     notify_discord: true
-    confirmation_required: true
-    message: "Temporary files management triggered due to high disk usage or old temporary files."

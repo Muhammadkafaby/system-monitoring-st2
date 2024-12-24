@@ -1,8 +1,9 @@
-type: python-script
+---
 name: anomaly_detection
 description: This action detects abnormal activities in the system and notifies the administrator.
 enabled: true
 entry_point: actions/anomaly_detection.py
+runner_type: python-script
 parameters:
   threshold:
     type: integer
@@ -17,10 +18,4 @@ parameters:
   alert_level:
     type: string
     required: true
-    default: "critical"
-    description: Level of alert for anomalies detected.
-  log_file:
-    type: string
-    required: false
-    default: "/var/log/anomaly_detection.log"
-    description: Path to the log file for recording anomalies.
+    description: Level of alert to be sent (e.g., info, warning, critical).

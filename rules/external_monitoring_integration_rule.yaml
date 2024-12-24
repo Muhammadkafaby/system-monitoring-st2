@@ -1,26 +1,19 @@
-type: rule
+---
 name: external_monitoring_integration_rule
 description: This rule triggers actions based on notifications from external monitoring systems.
 enabled: true
 trigger:
-  type: webhook
+  type: core.st2.webhook
   parameters:
-    url: "https://your-external-monitoring-system.com/webhook"
-    method: "POST"
-    payload:
-      event: "monitoring_alert"
-      conditions:
-        - condition: "critical"
-          action: "send_discord_notification"
-        - condition: "warning"
-          action: "monitor_resources"
-        - condition: "info"
-          action: "generate_reports"
+    url: "https://discord.com/api/webhooks/1321090400580276275/RbQ0zS-Ig0ZrMaDUG4l1BrEnp7CoFptDWBu_imKPHEzS6VVEFffww9vTMUXlHytjI1se"
+criteria:
+  trigger.payload.event:
+    type: "equals"
+    pattern: "monitoring_alert"
 action:
-  ref: "actions/external_monitoring_integration.yaml"
+  ref: system_monitoring.send_discord_notification
   parameters:
-    notification_format: "json"
-    alert_types:
-      - critical
-      - warning
-      - info
+    url: "https://discord.com/api/webhooks/1321090400580276275/RbQ0zS-Ig0ZrMaDUG4l1BrEnp7CoFptDWBu_imKPHEzS6VVEFffww9vTMUXlHytjI1se"
+    message: "An alert has been received from the external monitoring system."
+    username: "Monitoring Bot"
+    avatar_url: "https://example.com/avatar.png"

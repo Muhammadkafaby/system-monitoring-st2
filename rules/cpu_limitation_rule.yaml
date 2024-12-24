@@ -1,5 +1,3 @@
-rules/cpu_limitation_rule.yaml
-
 ---
 name: cpu_limitation_rule
 description: Rule to trigger CPU limitation actions based on administrator commands.
@@ -9,9 +7,9 @@ trigger:
   parameters:
     webhook: "cpu_limitation"
 action:
-  ref: "actions.cpu_limitation"
+  ref: "system_monitoring.cpu_limitation"
   parameters:
-    process_name: "{{trigger.process_name}}"
-    cpu_limit: "{{trigger.cpu_limit}}"
+    process_name: "{{trigger.parameters.process_name}}"
+    cpu_limit: "{{trigger.parameters.cpu_limit}}"
     notify_discord: true
     reason: "CPU limit set by administrator command."

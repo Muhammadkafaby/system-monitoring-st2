@@ -1,14 +1,14 @@
-rules/energy_efficiency_metrics_rule.yaml
-
 ---
 name: energy_efficiency_metrics_rule
 description: Rule to trigger energy efficiency metrics monitoring actions.
 enabled: true
 trigger:
-  type: interval
-  seconds: 3600
+  type: core.st2.IntervalTimer
+  parameters:
+    unit: seconds
+    delta: 3600
 action:
-  ref: actions.energy_efficiency_metrics
+  ref: system_monitoring.energy_efficiency_metrics
   parameters:
     threshold: 80
     notify: true

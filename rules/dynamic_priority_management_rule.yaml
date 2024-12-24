@@ -1,23 +1,24 @@
-type: rule
+---
 name: dynamic_priority_management_rule
 description: This rule triggers dynamic priority management based on resource usage and administrator commands.
 enabled: true
 trigger:
-  type: sensor
-  ref: process_monitoring_sensor
+  type: core.st2.Sensor
   parameters:
-    resource_usage_threshold: 
-      cpu: 85
-      ram: 80
-      disk: 90
-    action: dynamic_priority_management
-    notification: send_discord_notification
-    conditions:
-      - process_running_time: 300  # in seconds
-      - high_resource_usage: true
-      - admin_command_received: true
+    ref: process_monitoring_sensor
+criteria:
+  trigger.parameters.resource_usage_threshold.cpu:
+    type: "gt"
+    pattern: 85
+  trigger.parameters.resource_usage_threshold.ram:
+    type: "gt"
+    pattern: 80
+  trigger.parameters.resource_usage_threshold.disk:
+    type: "gt"
+    pattern: 90
 action:
-  ref: actions.dynamic_priority_management
+  ref: system_monitoring.dynamic_priority_management
   parameters:
-    priority_adjustment: true
-    notify_admin: true
+    process_name: "{{trigger.parameters.process_name}}"
+    action: "{{trigger.parameters.action}}"
+    priority_level: "{{trigger.parameters.priority_level}}"

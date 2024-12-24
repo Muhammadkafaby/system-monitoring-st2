@@ -12,7 +12,3 @@ parameters:
     type: string
     required: false
     description: Reason for the restart notification.
-notify_discord:
-  type: boolean
-  default: true
-  description: Send notification to Discord after restart.

@@ -1,14 +1,15 @@
+---
 name: Docker Restart Rule
 description: This rule triggers the Docker restart action based on container failures.
 enabled: true
 trigger:
-  type: sensor
-  ref: docker_container_failure_sensor
+  type: core.st2.Sensor
   parameters:
+    ref: docker_container_failure_sensor
     failure_threshold: 1
     check_interval: 60
 action:
-  ref: actions/docker_restart.yaml
+  ref: system_monitoring.docker_restart
   parameters:
     notify_admin: true
     reason: "Container failure detected, initiating restart."

@@ -1,17 +1,17 @@
-type: rule
+---
 name: advanced_cache_cleaning_rule
 description: This rule triggers the advanced cache cleaning action based on administrator commands.
 enabled: true
 trigger:
-  type: command
+  type: core.st2.webhook
   parameters:
-    command: clean_cache
-    description: Command to initiate advanced cache cleaning.
-    required_parameters:
-      - cache_type
-      - confirmation
+    url: clean_cache
+criteria:
+  trigger.parameters.cache_type:
+    type: "equals"
+    pattern: "kernel|inode/dentry|buffer"
 action:
-  ref: advanced_cache_cleaning
+  ref: system_monitoring.advanced_cache_cleaning
   parameters:
     cache_type: "{{trigger.parameters.cache_type}}"
     confirmation: "{{trigger.parameters.confirmation}}"
