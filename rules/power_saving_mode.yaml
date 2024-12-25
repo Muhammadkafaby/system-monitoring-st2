@@ -1,0 +1,15 @@
+type: rule
+name: power_saving_mode
+description: Manage power-saving mode based on system status.
+enabled: true
+trigger:
+  type: sensor
+  ref: resource_monitoring_sensor
+  parameters:
+    event: power_saving_mode_event
+action:
+  ref: actions/power_saving_mode.py
+  parameters:
+    mode: "{{trigger.mode}}"
+    reason: "{{trigger.reason}}"
+    notify_discord: true

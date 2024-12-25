@@ -1,0 +1,18 @@
+type: rule
+name: automatic_recovery
+description: Automatically restarts failed services or containers and notifies administrators.
+enabled: true
+trigger:
+  type: core.st2.trigger
+  parameters:
+    event: service_failed
+action:
+  ref: actions.automatic_recovery
+  parameters:
+    notification_channel: discord
+    notify_admins: true
+    recovery_action: restart_service_or_container
+    service_name: "{{trigger.service_name}}"
+    container_id: "{{trigger.container_id}}"
+    reason: "{{trigger.reason}}"
+    timestamp: "{{trigger.timestamp}}"

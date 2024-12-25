@@ -1,0 +1,12 @@
+name: Monitor Network Activity
+description: This rule monitors network activity and triggers alerts for high usage processes.
+enabled: true
+trigger:
+  type: sensor.network_monitoring_sensor
+  parameters:
+    threshold: "{{ threshold.network_usage }}"
+action:
+  ref: actions.monitor_network
+  parameters:
+    alert_channel: "discord"
+    notification_message: "High network usage detected. Please check the processes."

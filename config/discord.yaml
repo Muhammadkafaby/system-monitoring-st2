@@ -1,16 +1,7 @@
-webhook_url: "https://discord.com/api/webhooks/your_webhook_url"
-channel: "your_channel_name"
-username: "StackStorm Bot"
-avatar_url: "https://example.com/avatar.png"
-notifications:
-  critical:
-    title: "Critical Alert"
-    color: "FF0000"
-  warning:
-    title: "Warning Alert"
-    color: "FFA500"
-  info:
-    title: "Information"
-    color: "00FF00"
-log_channel: "log_channel_name"
-log_level: "info"
+token: YOUR_DISCORD_BOT_TOKEN
+channel_id: YOUR_DISCORD_CHANNEL_ID
+username: StackStorm Monitor
+avatar_url: https://example.com/avatar.png
+notify_on_error: true
+notify_on_warning: true
+notify_on_info: true

@@ -1,0 +1,11 @@
+cpu_usage_threshold: 80
+ram_usage_threshold: 75
+disk_usage_threshold: 90
+network_usage_threshold: 100
+process_execution_time_threshold: 300
+zombie_process_check_interval: 60
+malware_detection_interval: 120
+energy_efficiency_threshold: 0.8
+temporary_file_cleanup_threshold: 30
+docker_restart_threshold: 5
+anomaly_detection_threshold: 10

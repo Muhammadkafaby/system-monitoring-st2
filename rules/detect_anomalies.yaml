@@ -1,0 +1,14 @@
+name: Detect Anomalies
+description: This rule detects anomalies in the system and triggers the corresponding action.
+enabled: true
+trigger:
+  type: anomaly_detection
+  parameters:
+    threshold: 5
+    interval: 60
+action:
+  ref: actions.detect_anomalies
+  parameters:
+    notification_channel: discord
+    severity: high
+    message: "Anomaly detected in the system. Please check the logs for details."

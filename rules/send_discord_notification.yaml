@@ -1,0 +1,15 @@
+name: Send Discord Notification
+description: This rule sends notifications to Discord for various alerts and actions taken by the system.
+enabled: true
+trigger:
+  type: core.st2.trigger
+  parameters:
+    type: discord_notification
+action:
+  ref: actions.send_discord_notification
+  parameters:
+    message: "{{ trigger.message }}"
+    channel: "{{ trigger.channel }}"
+    username: "{{ trigger.username }}"
+    avatar_url: "{{ trigger.avatar_url }}"
+    embed: "{{ trigger.embed }}"

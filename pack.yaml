@@ -1,58 +1,59 @@
-name: stackstorm-implementation
-description: A StackStorm pack for monitoring and managing system resources, processes, and notifications via Discord.
+name: stackstorm-monitoring-system
+description: A comprehensive monitoring and management system using StackStorm and Discord for real-time notifications and actions.
 version: 1.0.0
-author: Muhammad Kafaby
-email: kafaby@student.telkomuniversity.ac.id
+author: Your Name
+email: your.email@example.com
 license: MIT
 actions:
-  - detect_zombie_processes.yaml
-  - manage_zombie_processes.yaml
-  - send_discord_notification.yaml
-  - monitor_resources.yaml
-  - manage_temp_files.yaml
-  - generate_reports.yaml
-  - dynamic_priority_management.yaml
-  - network_management.yaml
-  - automatic_recovery.yaml
-  - external_monitoring_integration.yaml
-  - advanced_cache_cleaning.yaml
-  - cpu_limitation.yaml
-  - process_time_monitoring.yaml
-  - multithreading_optimization.yaml
-  - threshold_customization.yaml
-  - power_saving_mode.yaml
-  - malware_detection.yaml
-  - docker_restart.yaml
-  - anomaly_detection.yaml
-  - self_healing.yaml
-  - energy_efficiency_metrics.yaml
-rules:
-  - detect_zombie_processes_rule.yaml
-  - manage_zombie_processes_rule.yaml
-  - send_discord_notification_rule.yaml
-  - monitor_resources_rule.yaml
-  - manage_temp_files_rule.yaml
-  - generate_reports_rule.yaml
-  - dynamic_priority_management_rule.yaml
-  - network_management_rule.yaml
-  - automatic_recovery_rule.yaml
-  - external_monitoring_integration_rule.yaml
-  - advanced_cache_cleaning_rule.yaml
-  - cpu_limitation_rule.yaml
-  - process_time_monitoring_rule.yaml
-  - multithreading_optimization_rule.yaml
-  - threshold_customization_rule.yaml
-  - power_saving_mode_rule.yaml
-  - malware_detection_rule.yaml
-  - docker_restart_rule.yaml
-  - anomaly_detection_rule.yaml
-  - self_healing_rule.yaml
-  - energy_efficiency_metrics_rule.yaml
+  - detect_zombie_processes
+  - manage_zombie_processes
+  - monitor_resources
+  - send_discord_notification
+  - log_actions
+  - manage_temp_files
+  - generate_reports
+  - adjust_process_priority
+  - monitor_network
+  - automatic_recovery
+  - integrate_external_monitoring
+  - clean_cache
+  - set_cpu_limit
+  - monitor_process_time
+  - optimize_multithreading
+  - set_thresholds
+  - power_saving_mode
+  - detect_malware
+  - restart_docker
+  - detect_anomalies
+  - self_heal
+  - monitor_energy_efficiency
 sensors:
-  - resource_monitoring_sensor.py
-  - network_activity_sensor.py
-  - process_monitoring_sensor.py
-  - malware_detection_sensor.py
+  - resource_monitoring_sensor
+  - network_monitoring_sensor
+  - anomaly_detection_sensor
+rules:
+  - detect_zombie_processes
+  - manage_zombie_processes
+  - monitor_resources
+  - send_discord_notification
+  - log_actions
+  - manage_temp_files
+  - generate_reports
+  - adjust_process_priority
+  - monitor_network
+  - automatic_recovery
+  - integrate_external_monitoring
+  - clean_cache
+  - set_cpu_limit
+  - monitor_process_time
+  - optimize_multithreading
+  - set_thresholds
+  - power_saving_mode
+  - detect_malware
+  - restart_docker
+  - detect_anomalies
+  - self_heal
+  - monitor_energy_efficiency
 config:
-  - discord.yaml
-  - stackstorm.yaml
+  - discord
+  - thresholds

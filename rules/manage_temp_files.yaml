@@ -1,0 +1,15 @@
+name: Manage Temporary Files
+description: Rule to manage temporary files, including deletion notifications and confirmations through Discord.
+enabled: true
+trigger:
+  type: sensor
+  ref: resource_monitoring_sensor
+  parameters:
+    event: temp_file_management
+action:
+  ref: actions.manage_temp_files
+  parameters:
+    notify_discord: true
+    confirmation_required: true
+    temp_file_threshold: 100MB
+    deletion_message: "Temporary files exceeding the threshold have been identified for deletion. Please confirm to proceed."

@@ -1,0 +1,13 @@
+name: Set CPU Limit
+description: This rule sets CPU limits for specific processes based on administrator commands received via Discord.
+enabled: true
+trigger:
+  type: discord.message
+  parameters:
+    pattern: 'set_cpu_limit'
+action:
+  ref: actions.set_cpu_limit
+  parameters:
+    process_name: "{{trigger.message.process_name}}"
+    cpu_limit: "{{trigger.message.cpu_limit}}"
+    notify: true

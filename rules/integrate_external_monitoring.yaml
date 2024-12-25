@@ -1,0 +1,22 @@
+type: "rule"
+name: "Integrate External Monitoring"
+description: "Integrates with external monitoring systems and sends notifications to Discord."
+enabled: true
+trigger:
+  type: "webhook"
+  parameters:
+    url: "http://external-monitoring-system/api/notifications"
+    method: "POST"
+    headers:
+      Content-Type: "application/json"
+    payload:
+      alert_type: "{{trigger.alert_type}}"
+      message: "{{trigger.message}}"
+      timestamp: "{{trigger.timestamp}}"
+action:
+  ref: "actions.integrate_external_monitoring"
+  parameters:
+    discord_channel: "alerts"
+    notification_message: "{{trigger.message}}"
+    alert_type: "{{trigger.alert_type}}"
+    timestamp: "{{trigger.timestamp}}"

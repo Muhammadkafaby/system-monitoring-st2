@@ -1,56 +1,52 @@
-# StackStorm Implementation
+# StackStorm Monitoring System
 
 This project implements a comprehensive monitoring and management system using StackStorm and Discord for real-time notifications and actions. The system is designed to enhance resource management, process monitoring, and automated recovery in a server environment.
 
 ## Features
 
-1. **Zombie Process Detection and Management**: Automatically identifies and manages zombie processes with validation through Discord notifications.
-2. **Real-Time Notifications**: Sends critical alerts for high CPU usage, disk space issues, and other important events directly to Discord.
-3. **Detailed Logging**: Logs all actions taken by the system, including process management and resource monitoring.
-4. **Resource Monitoring**: Monitors CPU, RAM, disk usage, and network activity, providing alerts based on customizable thresholds.
-5. **Temporary File Management**: Manages temporary files with notifications for deletion and confirmation through Discord.
-6. **Automated Reporting**: Generates daily and monthly reports on resource usage and optimization actions.
-7. **Dynamic Process Priority Management**: Adjusts process priorities based on resource usage and administrator commands.
-8. **Network Management**: Monitors network bandwidth and detects high usage processes, sending alerts as necessary.
-9. **Automatic Recovery**: Restarts failed services or containers automatically and notifies administrators.
-10. **Integration with External Monitoring**: Integrates with external monitoring systems and sends notifications to Discord.
-11. **Advanced Cache Cleaning**: Provides commands for cleaning specific caches and logs the results.
-12. **CPU Limitation**: Allows administrators to set CPU limits for specific processes.
-13. **Process Time Monitoring**: Monitors processes that exceed normal execution time and notifies administrators.
-14. **Multithreading Optimization**: Analyzes thread usage and provides optimization recommendations.
-15. **Customizable Thresholds**: Administrators can set new resource usage thresholds via Discord commands.
-16. **Power Saving Mode**: Activates or deactivates power-saving mode based on system status.
-17. **Malware Detection**: Scans for suspicious processes and notifies administrators of detected threats.
-18. **Docker Restart Automation**: Automatically restarts Docker containers that fail and notifies administrators.
-19. **Anomaly Detection**: Detects abnormal activities in the system and alerts administrators.
-20. **Self-Healing System**: Automatically fixes simple issues and reports the results.
-21. **Energy Efficiency Metrics**: Monitors energy efficiency and recommends power-saving measures.
+- **Zombie Process Detection and Management**: Automatically identifies and manages zombie processes with validation through Discord notifications.
+- **Real-Time Notifications**: Sends critical alerts for high CPU usage, disk space issues, and other important events directly to Discord.
+- **Detailed Logging**: Logs all actions taken by the system, including process management and resource monitoring.
+- **Resource Monitoring**: Monitors CPU, RAM, disk usage, and network activity, providing alerts based on customizable thresholds.
+- **Temporary File Management**: Manages temporary files with notifications for deletion and confirmation through Discord.
+- **Automated Reporting**: Generates daily and monthly reports on resource usage and optimization actions.
+- **Dynamic Process Priority Management**: Adjusts process priorities based on resource usage and administrator commands.
+- **Network Management**: Monitors network bandwidth and detects high usage processes, sending alerts as necessary.
+- **Automatic Recovery**: Restarts failed services or containers automatically and notifies administrators.
+- **Integration with External Monitoring**: Integrates with external monitoring systems and sends notifications to Discord.
+- **Advanced Cache Cleaning**: Provides commands for cleaning specific caches and logs the results.
+- **CPU Limitation**: Allows administrators to set CPU limits for specific processes.
+- **Process Time Monitoring**: Monitors processes that exceed normal execution time and notifies administrators.
+- **Multithreading Optimization**: Analyzes thread usage and provides optimization recommendations.
+- **Customizable Thresholds**: Administrators can set new resource usage thresholds via Discord commands.
+- **Power Saving Mode**: Activates or deactivates power-saving mode based on system status.
+- **Malware Detection**: Scans for suspicious processes and notifies administrators of detected threats.
+- **Docker Restart Automation**: Automatically restarts Docker containers that fail and notifies administrators.
+- **Anomaly Detection**: Detects abnormal activities in the system and alerts administrators.
+- **Self-Healing System**: Automatically fixes simple issues and reports the results.
+- **Energy Efficiency Metrics**: Monitors energy efficiency and recommends power-saving measures.
 
-## Installation
+## Setup Instructions
 
 1. Clone the repository:
 
    ```
    git clone https://github.com/Muhammadkafaby/system-monitoring-st2.git
-   cd stackstorm-implementation
    ```
 
-2. Install StackStorm and its dependencies as per the official documentation.
+2. Navigate to the project directory:
 
-3. Configure the Discord bot settings in `config/discord.yaml`.
-
-4. Set up StackStorm configurations in `config/stackstorm.yaml`.
-
-5. Load the pack into StackStorm:
    ```
-   st2 pack install stackstorm-implementation
+   cd stackstorm-monitoring-system
    ```
 
-## Usage
+3. Install the required dependencies for StackStorm and any additional libraries needed for Discord integration.
 
-- Use the defined actions and rules to monitor and manage system resources.
-- Interact with the Discord bot for real-time notifications and commands.
-- Review logs and reports generated by the system for insights and optimizations.
+4. Configure the `config/discord.yaml` file with your Discord bot token and channel information.
+
+5. Set up the necessary rules and actions in StackStorm using the provided YAML files in the `rules` and `actions` directories.
+
+6. Start the StackStorm services and ensure that the sensors are running to monitor the system.
 
 ## Contributing
 
@@ -58,4 +54,4 @@ Contributions are welcome! Please submit a pull request or open an issue for any
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for more details.

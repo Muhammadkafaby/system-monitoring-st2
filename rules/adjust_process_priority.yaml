@@ -1,0 +1,20 @@
+name: Adjust Process Priority
+description: Adjusts the priority of processes based on resource usage and administrator commands.
+enabled: true
+trigger:
+  type: core.st2.trigger
+  parameters:
+    name: adjust_process_priority_trigger
+action:
+  ref: actions.adjust_process_priority
+  parameters:
+    process_name: "{{ process_name }}"
+    priority_level: "{{ priority_level }}"
+  on-success:
+    - action: actions.send_discord_notification
+      parameters:
+        message: "Process priority adjusted: {{ process_name }} to level {{ priority_level }}"
+  on-failure:
+    - action: actions.send_discord_notification
+      parameters:
+        message: "Failed to adjust process priority for: {{ process_name }}"
