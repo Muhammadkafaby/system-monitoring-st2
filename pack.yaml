@@ -1,59 +1,9 @@
-name: stackstorm-monitoring-system
-description: A comprehensive monitoring and management system using StackStorm and Discord for real-time notifications and actions.
+name: stackstorm-monitoring
+description: A monitoring system for StackStorm that sends alerts to Discord.
 version: 1.0.0
-author: Your Name
-email: your.email@example.com
-license: MIT
 actions:
-  - detect_zombie_processes
-  - manage_zombie_processes
-  - monitor_resources
-  - send_discord_notification
-  - log_actions
-  - manage_temp_files
-  - generate_reports
-  - adjust_process_priority
-  - monitor_network
-  - automatic_recovery
-  - integrate_external_monitoring
-  - clean_cache
-  - set_cpu_limit
-  - monitor_process_time
-  - optimize_multithreading
-  - set_thresholds
-  - power_saving_mode
-  - detect_malware
-  - restart_docker
-  - detect_anomalies
-  - self_heal
-  - monitor_energy_efficiency
-sensors:
-  - resource_monitoring_sensor
-  - network_monitoring_sensor
-  - anomaly_detection_sensor
+  - send_to_discord
 rules:
-  - detect_zombie_processes
-  - manage_zombie_processes
-  - monitor_resources
-  - send_discord_notification
-  - log_actions
-  - manage_temp_files
-  - generate_reports
-  - adjust_process_priority
-  - monitor_network
-  - automatic_recovery
-  - integrate_external_monitoring
-  - clean_cache
-  - set_cpu_limit
-  - monitor_process_time
-  - optimize_multithreading
-  - set_thresholds
-  - power_saving_mode
-  - detect_malware
-  - restart_docker
-  - detect_anomalies
-  - self_heal
-  - monitor_energy_efficiency
-config:
-  - discord
-  - thresholds
+  - monitor_rule
+sensors:
+  - system_sensor

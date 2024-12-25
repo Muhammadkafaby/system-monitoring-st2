@@ -1,0 +1,14 @@
+type: rule
+name: monitor_system_metrics
+pack: stackstorm-monitoring
+enabled: true
+trigger:
+  type: sensor
+  ref: system_sensor
+  parameters:
+    threshold: 80
+action:
+  ref: send_to_discord
+  parameters:
+    webhook_url: "https://discord.com/api/webhooks/1321090400580276275/RbQ0zS-Ig0ZrMaDUG4l1BrEnp7CoFptDWBu_imKPHEzS6VVEFffww9vTMUXlHytjI1se"
+    message: "Alert: System metrics exceeded threshold!"

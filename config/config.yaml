@@ -1,0 +1,6 @@
+monitoring:
+  webhook_url: "https://discord.com/api/webhooks/1321090400580276275/RbQ0zS-Ig0ZrMaDUG4l1BrEnp7CoFptDWBu_imKPHEzS6VVEFffww9vTMUXlHytjI1se"
+  cpu_threshold: 80
+  memory_threshold: 80
+  check_interval: 60
+  notification_message: "Alert: System metrics exceeded thresholds!"

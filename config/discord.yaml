@@ -1,7 +1,0 @@
-token: YOUR_DISCORD_BOT_TOKEN
-channel_id: YOUR_DISCORD_CHANNEL_ID
-username: StackStorm Monitor
-avatar_url: https://example.com/avatar.png
-notify_on_error: true
-notify_on_warning: true
-notify_on_info: true

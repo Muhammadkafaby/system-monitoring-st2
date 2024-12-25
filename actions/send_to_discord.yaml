@@ -1,0 +1,22 @@
+name: send_to_discord
+description: Sends a message to a Discord webhook
+enabled: true
+runner_type: python-script
+entry_point: send_to_discord.py
+parameters:
+  webhook_url:
+    type: string
+    required: true
+    description: The Discord webhook URL to send messages to.
+  message:
+    type: string
+    required: true
+    description: The message to send to the Discord channel.
+  username:
+    type: string
+    required: false
+    description: The username to display in Discord.
+  avatar_url:
+    type: string
+    required: false
+    description: The URL of the avatar to display in Discord.
